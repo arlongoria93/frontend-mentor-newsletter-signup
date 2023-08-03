@@ -11,7 +11,7 @@ const Card = () => {
   return (
     <div className="bg-white h-[641px] w-[928px] rounded-2xl flex flex-row">
       <div className="w-1/2 flex flex-col items-center justify-center">
-        <div className="w-[376px] h-[446px] border border-solid-black flex flex-col gap-[24px]">
+        <div className="w-[376px] h-[446px]  flex flex-col gap-[24px]">
           <h1
             className={`text-[56px] font-bold ${roboto.className} text-[#242742]`}
           >
@@ -40,13 +40,13 @@ const Card = () => {
           </div>
           <div className="w-[376px] h-[162px] flex flex-col">
             <p
-              className={`text-[12px] leading-6 font-bold ${roboto.className}`}
+              className={`text-[12px] leading-6 font-bold mb-[8px] ${roboto.className}`}
             >
               Email address
             </p>
             <input
               type="text"
-              className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer`}
+              className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
               placeholder="email@company.com"
             />
             <button className="w-[376px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B]">
