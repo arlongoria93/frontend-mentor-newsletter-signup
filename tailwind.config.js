@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         boxShadow: "rgba(255, 97, 85, 0.50)",
+        errorInput: "rgba(255, 97, 85, 0.15)",
       },
     },
   },

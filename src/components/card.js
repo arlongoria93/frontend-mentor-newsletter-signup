@@ -12,6 +12,7 @@ const roboto = Roboto({
 const Card = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
@@ -20,7 +21,14 @@ const Card = () => {
     e.preventDefault();
     if (!email) {
       setError(true);
-      return;
+    }
+    if (!email.includes("@")) {
+      setError(true);
+    }
+
+    if (email.includes("@")) {
+      setError(false);
+      setSuccess(true);
     }
   };
   return (
@@ -68,13 +76,35 @@ const Card = () => {
                 </p>
               )}
             </div>
-            <input
-              type="text"
-              className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
-              placeholder="email@company.com"
-              onChange={handleChange}
-              value={email}
-            />
+
+            {error ? (
+              <input
+                type="text"
+                className={`w-[376px] h-[56px] border focus:outline-none bg-errorInput border-[#FF6155] rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
+                placeholder="email@company.com"
+                onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleFormSubmit(e);
+                  }
+                }}
+                value={email}
+              />
+            ) : (
+              <input
+                type="text"
+                className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
+                placeholder="email@company.com"
+                onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleFormSubmit(e);
+                  }
+                }}
+                value={email}
+              />
+            )}
+
             <button
               onClick={handleFormSubmit}
               className="w-[376px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B] hover:shadow-boxShadow hover:shadow-lg hover:border-none"
