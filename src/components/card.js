@@ -1,6 +1,6 @@
 import React from "react";
 import { Roboto } from "next/font/google";
-import { IconList } from "./svgs";
+import { IconList, IllustrationSignUpDesktop } from "./svgs";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -55,7 +55,9 @@ const Card = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2">right</div>
+      <div className="w-1/2 p-[24px]">
+        <IllustrationSignUpDesktop className="w-full h-full" />
+      </div>
     </div>
   );
 };
