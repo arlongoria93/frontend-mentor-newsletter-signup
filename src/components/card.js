@@ -46,10 +46,10 @@ const Card = () => {
             </p>
             <input
               type="text"
-              className="w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px]"
+              className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer`}
               placeholder="email@company.com"
             />
-            <button className="w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] bg-[#242742] text-[16px] font-bold leading-6 text-[#fff]">
+            <button className="w-[376px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B]">
               Subscribe to monthly newsletter
             </button>
           </div>
