@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 import { Roboto } from "next/font/google";
+
 import { IconList, IllustrationSignUpDesktop } from "./svgs";
 
 const roboto = Roboto({
@@ -8,6 +10,19 @@ const roboto = Roboto({
 });
 
 const Card = () => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState(false);
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!email) {
+      setError(true);
+      return;
+    }
+  };
   return (
     <div className="bg-white h-[641px] w-[928px] rounded-2xl flex flex-row">
       <div className="w-1/2 flex flex-col items-center justify-center">
@@ -39,17 +54,31 @@ const Card = () => {
             </div>
           </div>
           <div className="w-[376px] h-[162px] flex flex-col">
-            <p
-              className={`text-[12px] leading-6 font-bold mb-[8px] ${roboto.className}`}
-            >
-              Email address
-            </p>
+            <div className="w-full flex flex-row items-center justify-between">
+              <p
+                className={`text-[12px] leading-6 font-bold mb-[8px] ${roboto.className}`}
+              >
+                Email address
+              </p>
+              {error && (
+                <p
+                  className={`text-[12px] leading-6 font-bold mb-[8px] text-[#FF6155] ${roboto.className}`}
+                >
+                  Valid email required
+                </p>
+              )}
+            </div>
             <input
               type="text"
               className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
               placeholder="email@company.com"
+              onChange={handleChange}
+              value={email}
             />
-            <button className="w-[376px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B] hover:shadow-boxShadow hover:shadow-lg hover:border-none">
+            <button
+              onClick={handleFormSubmit}
+              className="w-[376px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B] hover:shadow-boxShadow hover:shadow-lg hover:border-none"
+            >
               Subscribe to monthly newsletter
             </button>
           </div>
