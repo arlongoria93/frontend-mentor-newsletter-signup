@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Roboto } from "next/font/google";
+import SuccessCard from "./successCard";
 
 import { IconList, IllustrationSignUpDesktop } from "./svgs";
 
@@ -31,6 +32,7 @@ const Card = () => {
       setSuccess(true);
     }
   };
+  if (success) return <SuccessCard email={email} />;
   return (
     <div className="bg-white h-[641px] w-[928px] rounded-2xl flex flex-row">
       <div className="w-1/2 flex flex-col items-center justify-center">
