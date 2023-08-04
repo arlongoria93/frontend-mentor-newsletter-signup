@@ -32,7 +32,7 @@ const Card = () => {
       setSuccess(true);
     }
   };
-  if (success) return <SuccessCard email={email} />;
+  if (success) return <SuccessCard email={email} success />;
   return (
     <div className="bg-white hidden  desktop:h-[641px] desktop:w-[928px] rounded-2xl desktop:flex flex-row">
       <div className="w-1/2 flex flex-col items-center justify-center">

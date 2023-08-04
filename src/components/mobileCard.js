@@ -32,7 +32,7 @@ const MobileCard = () => {
       setSuccess(true);
     }
   };
-  if (success) return <SuccessCard email={email} />;
+  if (success) return <MobileSuccessCard email={email} success />;
   return (
     <div className="bg-white  w-screen  h-full flex flex-col gap-[40px] desktop:hidden items-center ">
       <div className="w-full h-full flex flex-col items-center">
