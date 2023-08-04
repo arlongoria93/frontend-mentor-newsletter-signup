@@ -14,6 +14,11 @@ const Card = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const handleSuccess = (bool) => {
+    setSuccess(bool);
+  };
+
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
@@ -32,7 +37,8 @@ const Card = () => {
       setSuccess(true);
     }
   };
-  if (success) return <SuccessCard email={email} success />;
+  if (success)
+    return <SuccessCard email={email} success handleSuccess={handleSuccess} />;
   return (
     <div className="bg-white hidden  desktop:h-[641px] desktop:w-[928px] rounded-2xl desktop:flex flex-row">
       <div className="w-1/2 flex flex-col items-center justify-center">

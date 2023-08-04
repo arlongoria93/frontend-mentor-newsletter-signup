@@ -1,7 +1,7 @@
 import React from "react";
 import { IconSuccess } from "./svgs";
 
-const MobileSuccessCard = ({ email, success }) => {
+const MobileSuccessCard = ({ email, success, handleSuccess }) => {
   if (!email) return null;
   if (success)
     return (
@@ -20,6 +20,7 @@ const MobileSuccessCard = ({ email, success }) => {
         <button
           onClick={() => {
             window.location.reload();
+            handleSuccess(false);
           }}
           className="bg-[#242742] w-[327px] mt-[263px] h-[56px] rounded-[8px] text-white font-bold"
         >

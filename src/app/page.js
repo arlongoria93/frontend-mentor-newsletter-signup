@@ -5,8 +5,8 @@ import "next/font/google";
 export default function Home() {
   return (
     <main className="flex min-h-screen desktop:justify-center flex-col items-center desktop:p-24">
-      <Card />
       <MobileCard />
+      <Card />
     </main>
   );
 }

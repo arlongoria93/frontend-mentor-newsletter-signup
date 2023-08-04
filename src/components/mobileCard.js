@@ -18,6 +18,10 @@ const MobileCard = () => {
     setEmail(e.target.value);
   };
 
+  const handleSuccess = (bool) => {
+    setSuccess(bool);
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!email) {
@@ -32,7 +36,10 @@ const MobileCard = () => {
       setSuccess(true);
     }
   };
-  if (success) return <MobileSuccessCard email={email} success />;
+  if (success)
+    return (
+      <MobileSuccessCard email={email} success handleSuccess={handleSuccess} />
+    );
   return (
     <div className="bg-white  w-screen  h-full flex flex-col gap-[40px] desktop:hidden items-center ">
       <div className="w-full h-full flex flex-col items-center">
