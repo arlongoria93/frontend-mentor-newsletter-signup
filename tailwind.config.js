@@ -6,6 +6,10 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      desktop: { min: "928px" },
+      mobile: { max: "927px" },
+    },
     extend: {
       colors: {
         boxShadow: "rgba(255, 97, 85, 0.50)",

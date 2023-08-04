@@ -1,16 +1,16 @@
 "use client";
-import { useState } from "react";
-import { Roboto } from "next/font/google";
-import SuccessCard from "./successCard";
+import React, { useState } from "react";
+import { IllustrationSignUpMobile, IconList } from "./svgs";
+import MobileSuccessCard from "./mobileSuccessCard";
 
-import { IconList, IllustrationSignUpDesktop } from "./svgs";
+import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["700", "400"],
 });
 
-const Card = () => {
+const MobileCard = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -34,11 +34,15 @@ const Card = () => {
   };
   if (success) return <SuccessCard email={email} />;
   return (
-    <div className="bg-white hidden  desktop:h-[641px] desktop:w-[928px] rounded-2xl desktop:flex flex-row">
-      <div className="w-1/2 flex flex-col items-center justify-center">
-        <div className="w-[376px] h-[446px]  flex flex-col gap-[24px]">
+    <div className="bg-white  w-screen  h-full flex flex-col gap-[40px] desktop:hidden items-center ">
+      <div className="w-full h-full flex flex-col items-center">
+        <IllustrationSignUpMobile className="w-[375px] h-[284px]" />
+      </div>
+
+      <div className="flex flex-col items-center  p-[24px]  h-full w-[375px]">
+        <div className="flex flex-col h-full gap-[24px] ">
           <h1
-            className={`text-[56px] font-bold ${roboto.className} text-[#242742]`}
+            className={`text-[40px] font-bold ${roboto.className} text-[#242742]`}
           >
             Stay Updated!
           </h1>
@@ -63,8 +67,8 @@ const Card = () => {
               <p>And much more!</p>
             </div>
           </div>
-          <div className="w-[376px] h-[162px] flex flex-col">
-            <div className="w-full flex flex-row items-center justify-between">
+          <div className="w-[327px] h-[162px] flex flex-col items-center">
+            <div className=" w-[327px] flex flex-row items-center justify-between">
               <p
                 className={`text-[12px] leading-6 font-bold mb-[8px] ${roboto.className}`}
               >
@@ -82,7 +86,7 @@ const Card = () => {
             {error ? (
               <input
                 type="text"
-                className={`w-[376px] h-[56px] border focus:outline-none bg-errorInput border-[#FF6155] rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
+                className={`w-[327px] h-[56px] border focus:outline-none bg-errorInput border-[#FF6155] rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
                 placeholder="email@company.com"
                 onChange={handleChange}
                 onKeyDown={(e) => {
@@ -95,7 +99,7 @@ const Card = () => {
             ) : (
               <input
                 type="text"
-                className={`w-[376px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
+                className={`w-[327px] h-[56px] border border-solid-black rounded-[8px] p-[16px] text-[16px] ${roboto.className} hover:cursor-pointer mb-[24px]`}
                 placeholder="email@company.com"
                 onChange={handleChange}
                 onKeyDown={(e) => {
@@ -109,18 +113,15 @@ const Card = () => {
 
             <button
               onClick={handleFormSubmit}
-              className="w-[376px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B] hover:shadow-boxShadow hover:shadow-lg hover:border-none"
+              className="w-[327px] h-[56px] border transition-colors duration-300 ease-in-out border-solid-black rounded-[8px] p-[16px] text-[16px] font-bold leading-6 text-[#fff] bg-gradient-to-r from-[#242742] to-[#242742]  hover:from-[#FF6A3A] hover:to-[#FF527B] hover:shadow-boxShadow hover:shadow-lg hover:border-none"
             >
               Subscribe to monthly newsletter
             </button>
           </div>
         </div>
       </div>
-      <div className="w-1/2 p-[24px]">
-        <IllustrationSignUpDesktop className="w-full h-full" />
-      </div>
     </div>
   );
 };
 
-export default Card;
+export default MobileCard;
